@@ -1,0 +1,61 @@
+s = 'chandra'
+type(s)
+string
+can be in sinle quote and double quote
+list data types
+list :collection of elements and closed in []
+l = []
+l = list()
+l = [1,2,3,4,"dfthg",78.9,[1,2,4],(1,2)]
+properties of list
+mutable
+can add or remove elements within same obj and memory allocation
+can have duplicates
+ordered
+multiple datatypes
+dynamic data type
+tuple
+enclosed in {}
+t = (1,2),"rtg",True,False)
+immutable
+fixed data type
+diff btw tuple and list 
+Mapping data types
+dict
+set
+collection of elements enclosed in {}
+declaration of set is constructor
+s = set()
+s = {1,2,3,"5yuf","iohj",3.78"}
+type(s)
+no duplicates
+mutable
+add or delete cannot modify
+dyanmic
+unordered
+dictionary
+It allows key value pairs
+json ,api 
+collection items {}
+ordered
+mutable
+s = {}
+type(s)
+s=['name':chandra',  'batch': 63, 'course' : 'PFS'}
+Boolean true or false
+status = True
+<class 'bool'>
+Non data type
+status = None
+type(status)
+s.add(6)
+s
+s.remove(2)
+s
+s = frozenset({1,2,3,4}}
+immutable
+
+
+
+
+ 
