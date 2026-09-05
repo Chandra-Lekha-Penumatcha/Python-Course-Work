@@ -1,0 +1,544 @@
+Object-Oriented Programming (OOP) – Interview Notes
+1. What is OOP?
+
+Object-Oriented Programming (OOP) is a programming approach where a program is designed using classes and objects. It combines data and the functions that operate on that data into a single unit.
+
+OOP is useful for building large and complex applications because it makes code:
+
+Organized
+Reusable
+Maintainable
+Scalable
+Interview Answer
+
+“OOP is a programming paradigm that organizes code around classes and objects. It helps us manage complex applications by providing concepts such as encapsulation, inheritance, polymorphism, and abstraction.”
+
+2. Why do we use OOP instead of only Procedural Programming?
+
+Procedural programming works well for small and simple programs, but as the project becomes larger, managing many functions and data becomes difficult.
+
+Object-oriented programming helps us organize code into classes and objects, which improves:
+
+Code reusability
+Maintainability
+Scalability
+Organization
+
+It also provides concepts like:
+
+Encapsulation
+Inheritance
+Polymorphism
+Abstraction
+Simple Interview Answer
+
+“We use OOP when a project becomes complex. It helps us organize data and functions together using classes and objects, making the code more reusable, maintainable, and scalable.”
+
+3. What is a Class?
+
+A class is a blueprint or template used to combine attribute and methods.
+
+It defines:
+
+Attributes → Data/properties
+Methods → Behaviour/functions
+Example
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+Here:
+
+User → Class
+name, email → Attributes
+__init__() → Constructor
+Computing Example
+
+In a social-media application, User can be a class containing:
+
+name
+email
+password
+login()
+logout()
+Interview Answer
+What is a class?
+
+“A class is a blueprint or template that defines the properties and behaviours of objects.”
+
+4. What is an Object?
+
+An object is an instance of a class.
+
+It is the actual entity created from the class.
+
+Example
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+
+user1 = User("Rahul", "rahul@gmail.com")
+user2 = User("Priya", "priya@gmail.com")
+
+Here:
+
+User → Class
+user1 → Object
+user2 → Object
+
+Each object can have its own data.
+
+Easy Way to Remember
+
+Class = Blueprint
+Object = Actual instance created from the blueprint
+
+Interview Answer
+
+“An object is an instance of a class. For example, User is a class, while user1 and user2 are objects created from that class.”
+
+5. Important Features of OOP
+
+The four major concepts of OOP are:
+
+1. Encapsulation
+
+Wrapping data and methods together and controlling access to the data.
+
+2. Inheritance
+
+Allowing one class to acquire properties and methods from another class.
+
+3. Polymorphism
+
+The same method or interface can behave differently depending on the object.
+
+4. Abstraction
+
+Hiding complex implementation details and showing only the required functionality.
+
+Easy Memory Trick
+
+EIPA
+
+E → Encapsulation
+I → Inheritance
+P → Polymorphism
+A → Abstraction
+6. Encapsulation
+Definition
+Encapsulation:
+
+Encapsulation means combining data and methods inside a class and controlling direct access to the internal data.
+
+The main idea is:
+
+Protect the data and control how it is accessed or modified.
+
+In Python, we can use __ to indicate internal/private-style attributes through name mangling.
+three methods
+private attribute
+public attribute 
+protected attribute
+
+Instagram Example
+
+Imagine an Instagram account.
+
+An account may contain sensitive information such as a password.
+
+We don't want other parts of the program to directly modify the password.
+
+Instead, we can provide a method such as change_password().
+
+class InstagramAccount:
+    def __init__(self, username, password):
+        self.username = username
+        self.__password = password
+
+
+    def change_password(self, new_password):
+        self.__password = new_password
+
+Here:
+
+username → Attribute
+__password → Internal/private-style attribute
+change_password() → Method used to modify it
+Interview Explanation
+
+“For example, in Instagram, password-related data can be kept internal, and we can provide methods to control how the password is changed. This is an example of encapsulation because the data and methods are grouped together and access to the internal data is controlled.”
+
+Easy Way to Remember
+
+Encapsulation = Protect/Control Data
+
+7. Inheritance
+Definition
+
+Inheritance allows a child class to acquire attributes and methods from a parent class.
+
+It helps with:
+
+Code reuse
+Reducing duplicate code
+Creating relationships between classes
+Parent Class → Child Class
+
+The child gets common functionality from the parent.
+
+LinkedIn Example
+
+Imagine LinkedIn has different types of users:
+
+Job seekers
+Recruiters
+Employers
+
+All users may have common functionality such as:
+
+Login
+Logout
+Update profile
+
+We can create a common LinkedInUser class.
+
+Then JobSeeker can inherit from it.
+
+class LinkedInUser:
+    def login(self):
+        print("User logged in")
+
+
+
+
+class JobSeeker(LinkedInUser):
+    def apply_job(self):
+        print("Applied for a job")
+
+
+
+
+user = JobSeeker()
+
+
+user.login()
+user.apply_job()
+
+Here:
+
+LinkedInUser → Parent class
+JobSeeker → Child class
+login() → Inherited method
+apply_job() → Child-specific method
+What happens?
+
+The JobSeeker class doesn't need to rewrite the login() method.
+
+It automatically gets it from LinkedInUser.
+
+Interview Answer
+
+“Inheritance allows a child class to reuse the properties and methods of a parent class. For example, in LinkedIn, JobSeeker can inherit common functionality such as login() from LinkedInUser and add its own functionality such as apply_job().”
+
+Easy Way to Remember
+
+Inheritance = Child gets from Parent
+
+8. Polymorphism
+Definition
+
+The word polymorphism means “many forms.”
+
+It means the same method or interface can perform different actions depending on the object.
+
+Easy Example
+
+Suppose we have a method called:
+
+play()
+
+Different objects can implement play() differently.
+
+YouTube Example
+
+On YouTube, different types of content can be played:
+
+Normal video
+Live stream
+
+Both can have a play() method, but the behaviour can be different.
+
+class Video:
+    def play(self):
+        print("Playing video")
+
+
+
+
+class LiveStream:
+    def play(self):
+        print("Starting live stream")
+
+
+
+
+for content in [Video(), LiveStream()]:
+    content.play()
+
+Output:
+
+Playing video
+Starting live stream
+
+The same:
+
+content.play()
+
+produces different behaviour depending on the object.
+
+Normal User → watches with ads
+Premium User → watches without ads
+
+This is polymorphism because the same method name watch_video() behaves differently for different objects.
+
+Interview Answer
+
+“Polymorphism means many forms. It allows the same method or interface to behave differently depending on the object. For example, in YouTube, different content types can have a play() method, but the implementation can be different for each type.”
+
+Easy Way to Remember
+
+Polymorphism = Same action, different behaviour
+
+9. Abstraction
+Definition
+
+Abstraction means hiding unnecessary or complex implementation details and showing only the essential functionality to the user.
+
+The user focuses on:
+
+WHAT the system does
+
+instead of:
+
+HOW the system does it
+
+PhonePe Example
+
+Suppose you make a payment using PhonePe.
+
+You:
+
+Select the receiver
+Enter the amount
+Enter authentication details
+Confirm the payment
+
+You don't need to know the internal implementation such as:
+
+Network communication
+Bank server communication
+Encryption
+Transaction processing
+Payment verification
+
+All those complex details are hidden from you.
+
+You simply use the payment interface.
+
+That is abstraction.
+
+Interview Answer
+
+“In PhonePe, when we make a payment, we only interact with the payment interface. We don't need to know how the application communicates with the bank servers or processes the transaction internally. The complex implementation is hidden from the user, which is abstraction.”
+
+ATM Example of Abstraction
+
+When using an ATM, you:
+
+Insert your card
+Enter your PIN
+Select Withdraw
+Enter the amount
+Receive cash
+
+You don't need to know:
+
+How the ATM communicates with the bank
+How the bank verifies your account
+How the transaction is processed
+How the ATM communicates with the banking network
+
+You only interact with the required interface.
+
+Interview Answer
+
+“An ATM is a good example of abstraction. We select options like withdraw or check balance without knowing the internal communication between the ATM and bank server. The complex implementation is hidden, and only the required functionality is exposed.”
+
+Easy Way to Remember
+
+Abstraction = Hide complexity, show essentials
+
+10. Difference Between Encapsulation and Abstraction
+
+This is a very common interview question.
+
+Encapsulation	Abstraction
+Focuses on protecting data	Focuses on hiding complexity
+Controls access to data	Hides implementation details
+Combines data and methods	Shows only essential functionality
+Example: Instagram password	Example: ATM / PhonePe
+Easy Trick
+
+Encapsulation → HOW to protect data
+Abstraction → WHAT to show to the user
+
+Interview Answer
+
+“Encapsulation focuses on bundling data and methods together and controlling access to the data, whereas abstraction focuses on hiding complex implementation details and exposing only the necessary functionality.”
+
+11. Difference Between Class and Object
+Class	Object
+Blueprint/template	Actual instance
+Logical definition	Real entity
+Doesn't represent a specific instance	Represents a specific instance
+Example: User	Example: user1
+Easy Example
+class User:
+    pass
+
+
+user1 = User()
+user2 = User()
+
+Here:
+
+User = Class
+
+user1 and user2 = Objects
+
+Interview Answer
+
+“A class is a blueprint used to create objects, whereas an object is an actual instance of that class.”
+
+12. Complete OOP Example
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+
+    def display(self):
+        print(self.name, self.salary)
+
+
+
+
+emp1 = Employee("Rahul", 50000)
+emp2 = Employee("Priya", 60000)
+
+
+emp1.display()
+emp2.display()
+
+Here:
+
+Employee → Class
+emp1 → Object
+emp2 → Object
+name, salary → Attributes
+display() → Method
+__init__() → Constructor
+13. Four Pillars of OOP – Quick Revision
+Encapsulation
+
+Protect and control data.
+
+Example: Instagram account/password.
+
+Inheritance
+
+Child class gets properties and methods from parent class.
+
+Example: LinkedInUser → JobSeeker.
+
+Polymorphism
+
+Same method, different behaviour.
+
+Example: YouTube play() for different content types.
+
+Abstraction
+
+Hide complex implementation and show essential functionality.
+
+Example: PhonePe payment / ATM withdrawal.
+1. Attribute
+
+An attribute is a variable that stores data or properties of a class or object.
+
+Example:
+
+class Student:
+    college = "BVRIT"   # attribute
+2. Method
+
+A method is a function defined inside a class that performs an action.
+
+Example:
+
+class Student:
+    def display(self):   # method
+        print("Hello")
+Types of Methods
+3. Instance Method
+
+An instance method is a method that works with object/instance data. It uses self as its first parameter.
+
+class Student:
+    def display(self):
+        print("Student details")
+
+
+s1 = Student()
+s1.display()
+
+Deals with: Instance/Object
+
+4. Class Method
+
+A class method is a method that works with class-level data. It uses cls as its first parameter and is created using @classmethod.
+
+class Student:
+    college = "BVRIT"
+
+
+    @classmethod
+    def display(cls):
+        print(cls.college)
+
+Deals with: Class
+
+5. Static Method
+
+A static method is a method that is independent of both class and instance data. It does not require self or cls.
+
+It is created using @staticmethod.
+
+class Student:
+
+
+    @staticmethod
+    def add(a, b):
+        print(a + b)
+
+Deals with: Neither class nor instance
+
+Easy way to remember
+Type	Deals with	Keyword	Decorator
+Instance Method	Instance/Object	self	None
+Class Method	Class	cls	@classmethod
+Static Method	Neither	None	@staticmethod
